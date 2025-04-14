@@ -1,0 +1,15 @@
+names:
+- bean sprouts
+- beef
+- chicken
+- egg
+- fork
+- garlic
+- green onion
+- kimchi
+- onion
+- photato
+- spam
+nc: 11
+train: /content/drive/MyDrive/ingredients/train/images
+val: /content/drive/MyDrive/ingredients/test/images
