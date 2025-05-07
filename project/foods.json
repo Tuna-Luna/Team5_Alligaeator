@@ -1,0 +1,13 @@
+{
+  "bean sprouts": { "cal": 0.30, "carbs": 0.0594, "protein": 0.0304, "fat": 0.0018 },
+  "beef":         { "cal": 2.88, "carbs": 0.0000, "protein": 0.2633, "fat": 0.1954 },
+  "chicken":      { "cal": 1.10, "carbs": 0.0000, "protein": 0.2309, "fat": 0.0124 },
+  "egg":          { "cal": 1.47, "carbs": 0.0077, "protein": 0.1258, "fat": 0.0994 },
+  "garlic":       { "cal": 1.49, "carbs": 0.3306, "protein": 0.0636, "fat": 0.0050 },
+  "green onion":  { "cal": 0.32, "carbs": 0.0734, "protein": 0.0183, "fat": 0.0019 },
+  "kimchi":       { "cal": 0.21, "carbs": 0.0407, "protein": 0.0165, "fat": 0.0022 },
+  "onion":        { "cal": 0.42, "carbs": 0.1011, "protein": 0.0092, "fat": 0.0008 },
+  "potato":       { "cal": 0.77, "carbs": 0.1747, "protein": 0.0202, "fat": 0.0009 },
+  "spam":         { "cal": 3.13, "carbs": 0.0360, "protein": 0.1430, "fat": 0.2680 },
+  "pork":         { "cal": 2.71, "carbs": 0.0000, "protein": 0.2734, "fat": 0.1704 }
+}
