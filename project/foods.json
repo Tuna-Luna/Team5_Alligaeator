@@ -1,18 +1,18 @@
 {
-    "bean sprouts": { "cal": 30, "carbs": 5.94, "protein": 3.04, "fat": 0.05 },
-    "beef":         { "cal": 288, "carbs": 0.0000, "protein": 26.33, "fat": 19.54 },
-    "chicken":      { "cal": 108, "carbs": 2.68, "protein": 14.38, "fat": 4.33 },
-    "egg":          { "cal": 74, "carbs": 0.38, "protein": 6.29, "fat": 4.97 },
-    "garlic":       { "cal": 149, "carbs": 33.06, "protein": 6.36, "fat": 0.5 },
-    "green onion":  { "cal": 34, "carbs": 6.5, "protein": 1.9, "fat": 0.4 },
-    "kimchi":       { "cal": 21, "carbs": 4.07, "protein": 1.65, "fat": 0.22 },
-    "onion":        { "cal": 42, "carbs": 10.11, "protein": 0.92, "fat": 0.08 },
-    "potato":       { "cal": 66, "carbs": 14.77, "protein": 1.56, "fat": 0.09 },
-    "spam":         { "cal": 340, "carbs": 2, "protein": 13, "fat": 31 },
-    "pork":         { "cal": 271, "carbs": 0.0000, "protein": 27.34, "fat": 17.04 },
-    "sweet potato": { "cal": 86,   "carbs": 20.12, "protein": 1.57, "fat": 0.05},
-    "chicken breast": {"cal": 109, "carbs": 0.00, "protein": 22.98, "fat": 1.23},
-    "tomato": {"cal": 18, "carbs": 3.92, "protein": 0.88, "fat":0.2},
-    "banana": {"cal": 89, "carbs":22.84, "protein":1.09, "fat":0.33}
-     
-  }
+  "sweet potato": { "cal": 0.86, "carbs": 0.2012, "protein": 0.0157, "fat": 0.0005 },
+  "bean sprouts": { "cal": 0.30, "carbs": 0.0594, "protein": 0.0304, "fat": 0.0018 },
+  "egg":          { "cal": 0.74, "carbs": 0.0038, "protein": 0.0629, "fat": 0.0497 },
+  "beef":         { "cal": 2.88, "carbs": 0.0000, "protein": 0.2633, "fat": 0.1954 },
+  "garlic":       { "cal": 1.49, "carbs": 0.3306, "protein": 0.0660, "fat": 0.0050 },
+  "kimchi":       { "cal": 0.21, "carbs": 0.0407, "protein": 0.0165, "fat": 0.0022 },
+  "green onion":  { "cal": 0.34, "carbs": 0.0650, "protein": 0.0190, "fat": 0.0040 },
+  "onion":        { "cal": 0.42, "carbs": 0.1011, "protein": 0.0092, "fat": 0.0008 },
+  "potato":       { "cal": 0.66, "carbs": 0.1477, "protein": 0.0156, "fat": 0.0009 },
+  "pork":         { "cal": 2.71, "carbs": 0.0000, "protein": 0.2734, "fat": 0.1704 },
+  "spam":         { "cal": 3.40, "carbs": 0.0200, "protein": 0.1300, "fat": 0.3100 },
+  "chicken breast": { "cal": 1.09, "carbs": 0.0000, "protein": 0.2298, "fat": 0.0123 },
+  "cherry tomato":  { "cal": 0.18, "carbs": 0.0392, "protein": 0.0088, "fat": 0.0020 },
+  "chicken":        { "cal": 1.08, "carbs": 0.0268, "protein": 0.1438, "fat": 0.0433 },
+  "banana":         { "cal": 0.89, "carbs": 0.2284, "protein": 0.0109, "fat": 0.0033 }
+}
+

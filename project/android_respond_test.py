@@ -3,7 +3,8 @@
 
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
-from detect_api import detect_objects  # 앞서 설명한 함수
+# from detect_api import detect_objects  # 앞서 설명한 함수
+from detect_api_final import detect_objects
 
 import json
 # https://www.fatsecret.co.uk/calories-nutrition/generic/bean-sprouts?portionamount=100.000&portionid=4617891
@@ -56,10 +57,11 @@ app = FastAPI()
 def detect():
     try:
         food_item = detect_objects(
-            weights='best.pt',
-            source=f'./kimchi.jpg',
+            weights='best2.pt',
+            #source=f'./kimchi.jpg',
             #source = 0,
-            device='cpu'
+            device='cpu',
+            temp_img_save_path='./captures/captured.jpg'
         )
         
         weights = detect_weights()
