@@ -1,26 +1,13 @@
-
 import torch
-
 from pathlib import Path
-
 from models.common import DetectMultiBackend
-
 from utils.general import non_max_suppression, scale_boxes
-
 from utils.torch_utils import select_device
-
 from utils.dataloaders import LoadImages, LoadStreams
-
 from typing import List, Optional, Dict, Any
-
 import cv2
-import tempfile 
-import os
 
-
-
-
-
+# ./data.yaml
 def detect_objects(
     weights: str,
     source: str,
@@ -31,9 +18,7 @@ def detect_objects(
     device: str = '',
     classes: Optional[List[int]] = None,
     max_det: int = 1,
-
 ) -> List[List[Dict[str, Any]]]:
-
     """
     Run YOLOv5 inference and return detection results without displaying or saving images.
 
@@ -52,37 +37,30 @@ def detect_objects(
         List of lists, each inner list contains dicts with 'class_id', 'name', 'confidence'.
     """
 
+
     device = select_device(device)
     model = DetectMultiBackend(weights, device=device, dnn=False, data=data, fp16=False)
     stride, names, pt = model.stride, model.names, model.pt
     imgsz = (imgsz[0] - imgsz[0] % stride, imgsz[1] - imgsz[1] % stride)
 
     source = str(source)
-    use_temp_image = source.isnumeric()
-    if use_temp_image:
-        cap = cv2.VideoCapture(int(source))
-        if not cap.isOpened():
-            raise RuntimeError("Failed to open webcam")
-        ret, frame = cap.read()
-        cap.release()
-
-        if not ret:
-            raise RuntimeError("Failed to capture frame from webcam")
-        
-        with tempfile.NamedTemporaryFile(suffix=".jpg", delete=False) as tmp:
-            temp_img_path = tmp.name
-            cv2.imwrite(temp_img_path, frame)
-        source = temp_img_path
-
-    dataset = LoadImages(source, img_size=imgsz, stride=stride, auto=pt)
+    is_webcam = source.isnumeric()
+    if is_webcam:
+        dataset = LoadStreams(source, img_size=imgsz, stride=stride, auto=pt)
+    else:
+        dataset = LoadImages(source, img_size=imgsz, stride=stride, auto=pt)
 
     results: List[List[Dict[str, Any]]] = []
 
-    # frame_limit = 1
-    # frame_count = 0
+    frame_limit = 1
+    frame_count = 0
 
     for path, im, im0, vid_cap, _ in dataset:
-
+        # webcam imshow
+        if is_webcam:
+            im = im[0]     
+            im0 = im0[0] 
+            
         # Preprocess image
         im = torch.from_numpy(im).to(model.device)
         im = im.float() / 255.0
@@ -100,26 +78,39 @@ def detect_objects(
                 for *xyxy, conf, cls in det:
                     cls_id = int(cls)
                     dets.append({'class_id': cls_id, 'name': names[cls_id], 'confidence': float(conf)})
+                    
+                    x1, y1, x2, y2 = map(int, xyxy)
+                    label = f"{names[cls_id]} {conf:.2f}"
+                    cv2.rectangle(im0, (x1, y1), (x2, y2), (255, 0, 0), 2)
+                    cv2.putText(im0, label, (x1, y1 - 10),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
+
+               
 
         results.append(dets)
-
-        # frame_count += 1
-        # if is_webcam and frame_count >= frame_limit:
-        #     break
-
+        frame_count += 1
+        if is_webcam and frame_count >= frame_limit:
+            break
         # --- 5) 웹캠 모드에서만 화면에 띄우기
-        # if is_webcam:
-        #     cv2.imshow('YOLOv5 Webcam', im0)
-        #     if cv2.waitKey(1) & 0xFF in [27, ord('q')]:
-        #         break
-
-
+        if is_webcam:
+            cv2.imshow('YOLOv5 Webcam', im0)
+            if cv2.waitKey(1) & 0xFF in [27, ord('q')]:
+                break
 
     # 웹캠 윈도우 정리
-
-    # if is_webcam:
-    #     dataset.close()
-    #     cv2.destroyAllWindows()
+    if is_webcam:
+        
+        cv2.destroyAllWindows()
     print(results)
-
     return results
+
+
+# Example usage:
+# from detect_api import detect_objects
+# results = detect_objects(
+#     weights='./best.pt',
+#     source='./egg.jpg',  # or image path/directory
+#     data='./data.yaml',
+#     device='cpu'
+# )
+# print(results)

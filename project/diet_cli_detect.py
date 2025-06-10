@@ -5,6 +5,7 @@ from typing import List
 from nutrition_db import FOOD_DB
 # from detect_helper import run_detection
 from detect_api import detect_objects
+# from detect_api_weights import detect_objects
 
 @dataclass
 class BodyStats:
@@ -65,9 +66,17 @@ class DietManager:
         # 1) YOLOv5 실행 → 전체 결과 리스트 반환
         all_dets = detect_objects(
             weights='best.pt',
-            source=f'./{img_name}.jpg',
+            # source=f'./{img_name}.jpg',
+            source = '0',
             device='cpu'
         )
+        # all_dets = detect_objects(
+        #     weights='best.pt',
+        #     # source=f'./{img_name}.jpg',
+        #     source = '0',
+        #     device='cpu',
+        #     serial_port : str = '/dev/ttyUSBo'
+        # )
 
         # 2) 빈 결과 처리
         if not all_dets or not all_dets[0]:
