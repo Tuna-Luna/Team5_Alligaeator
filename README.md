@@ -18,4 +18,4 @@ We developed a calorie-measurement product that uses a weight sensor and a camer
 ## Demo
 Watch the final demo to see the full workflow in action.
 
-[![Final Demo Video](./assets/alligaetor.jpg)](./assets/final_demo.mp4)
+[![Final Demo Video](./assets/demo.jpg)](./assets/final_demo.mp4)
