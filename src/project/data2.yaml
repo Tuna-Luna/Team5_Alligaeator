@@ -1,0 +1,5 @@
+train: ../train/images
+val: ../valid/images
+
+nc: 15
+names: ['bean sprouts', 'beef', 'chicken', 'egg', 'pork', 'garlic', 'green onion', 'kimchi', 'onion', 'potato', 'spam', 'banana', 'sweet potato', 'cherry tomato', 'chicken breast']
